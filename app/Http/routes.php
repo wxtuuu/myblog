@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
+Route::get('home','Home\HomeController@index');
+Route::get('test',function (){
+    return "test";
+});
+Route::group(['middelware'=>'auth'],function(){
+    Route::get('admin','Admin\AdminController@index');
+    Route::get('admin/user','Admin\AdminController@user');
+    Route::get('admin/article','Admin\ArticleController@index');
+    Route::get('admin/article/add','Admin\ArticleController@add');
+    Route::get('admin/article/update','Admin\ArticleController@update');
+});
+
+
