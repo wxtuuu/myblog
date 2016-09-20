@@ -3,7 +3,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">@include('admin.layout.banav')</div>
         <div class="panel-body">
-            <a type="button" class="btn btn-primary">添加文章</a>
+            <a type="button" class="btn btn-primary" href="/admin/article/add">添加文章</a>
             <table class="table">
                 <thead>
                 <tr>

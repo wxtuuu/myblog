@@ -14,9 +14,10 @@ class ArticleController extends Controller
         return view('admin.article');
     }
 
-    public function add(Request $request)
+    public function add()
     {
-        return view('admin.operation.add');
+        $data = array('0'=>'0','1'=>'1');
+        return view('admin.operation.operation',['data' => $data]);
     }
     public function update(Request $request)
     {
