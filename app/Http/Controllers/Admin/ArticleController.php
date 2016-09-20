@@ -17,11 +17,13 @@ class ArticleController extends Controller
     public function add()
     {
         $data = array('0'=>'0','1'=>'1');
-        return view('admin.operation.operation',['data' => $data]);
+        return view('admin.operation.create',['data' => $data]);
     }
+
     public function update(Request $request)
     {
         $id = $request->get('id');
-        return view('admin.operation.add');
+        $data = array('0'=>'0','1'=>'1');
+        return view('admin.operation.edit',['data' => $data]);
     }
 }

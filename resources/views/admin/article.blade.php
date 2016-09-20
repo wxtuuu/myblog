@@ -27,8 +27,8 @@
                     <td>123</td>
                     <td>123</td>
                     <td class="update">
-                        <a href="#" class="glyphicon glyphicon-pencil"></a>
-                        <a href="#" class="glyphicon glyphicon-remove"></a>
+                        <a href="/admin/article/update" class="glyphicon glyphicon-pencil"></a>
+                        <a href="/admin/article/delete" class="glyphicon glyphicon-remove"></a>
                     </td>
                 </tr>
                 </tbody>

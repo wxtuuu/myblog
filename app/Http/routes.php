@@ -24,6 +24,7 @@ Route::group(['middelware'=>'auth'],function(){
     Route::get('admin/article','Admin\ArticleController@index');
     Route::get('admin/article/add','Admin\ArticleController@add');
     Route::get('admin/article/update','Admin\ArticleController@update');
+    Route::get('admin/article/delete','Admin\ArticleController@delete');
 });
 
 

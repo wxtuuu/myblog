@@ -13,6 +13,5 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-    {!! UEditor::css() !!}
-    {!! UEditor::js() !!}
+    @include('ueditor::ueditor');
 @endsection

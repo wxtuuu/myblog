@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Ender\UEditor\UEditor;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
