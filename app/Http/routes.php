@@ -14,26 +14,31 @@
 Route::get('/', function () {
     return redirect('home');
 });
-Route::get('home','Home\HomeController@index');
-Route::group(['middelware'=>'auth'],function(){
-    Route::get('admin','Admin\AdminController@index');
-    Route::get('admin/user','Admin\AdminController@user');
+Route::get('/home', 'Home\HomeController@index');
+Route::auth();
+Route::group(['namespace'=>'admin','middleware'=>'web'],function(){
+    Route::get('admin', 'AdminController@index');
+    /*用户登录*/
+    Route::get('admin/login', 'AuthController@getLogin');
+    Route::post('admin/login', 'AuthController@postLogin');
+    Route::get('admin/register', 'AuthController@getRegister');
+    Route::post('admin/register', 'AuthController@postRegister');
+    Route::get('admin/logout', 'AuthController@logout');
     /*文章显示*/
-    Route::get('admin/article','Admin\ArticleController@index');
-    Route::get('admin/article/add','Admin\ArticleController@add');
-    Route::get('admin/article/update/{id}','Admin\ArticleController@update');
+    Route::get('admin/article','ArticleController@index');
+    Route::get('admin/article/add','ArticleController@add');
+    Route::get('admin/article/update/{id}','ArticleController@update');
     /*文章增删改*/
-    Route::post('admin/article/add','Admin\ArticleController@store');
-    Route::post('admin/article/update/{id}','Admin\ArticleController@edit');
-    Route::get('admin/article/delete/{id}','Admin\ArticleController@delete');
+    Route::post('admin/article/add','ArticleController@store');
+    Route::post('admin/article/update/{id}','ArticleController@edit');
+    Route::get('admin/article/delete/{id}','ArticleController@delete');
     /*标签显示*/
-    Route::get('admin/tag','Admin\TagController@index');
-    Route::get('admin/tag/add','Admin\TagController@add');
-    Route::get('admin/tag/update/{id}','Admin\TagController@update');
+    Route::get('admin/tag','TagController@index');
+    Route::get('admin/tag/add','TagController@add');
+    Route::get('admin/tag/update/{id}','TagController@update');
     /*标签增删改*/
-    Route::post('admin/tag/add','Admin\TagController@store');
-    Route::post('admin/tag/update/{id}','Admin\TagController@edit');
-    Route::get('admin/tag/delete/{id}','Admin\TagController@delete');
+    Route::post('admin/tag/add','TagController@store');
+    Route::post('admin/tag/update/{id}','TagController@edit');
+    Route::get('admin/tag/delete/{id}','TagController@delete');
 });
-
 

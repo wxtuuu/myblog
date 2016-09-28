@@ -1,0 +1,19 @@
+.blog-post{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cccccc;
+}
+.blog-post p a{
+    color: #fd6769!important;
+    text-decoration: none!important;
+}
+.blog-post-meta{
+    line-height: 1.5;
+    color: #999;
+}
+.blog-post-content{
+    height:40px;
+    overflow: hidden;
+}
+.sidebar a{
+    color: #fd6769;
+}

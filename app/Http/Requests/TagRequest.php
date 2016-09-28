@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class Tag extends Request
+class TagRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,26 @@ class Tag extends Request
     public function rules()
     {
         return [
-            'name.required'=>'标签名不能为空',
+            'name'=>'required'
+        ];
+    }
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(){
+        return [
+            'name.required' => '标签名不能为空',
+        ];
+    }
+    /**
+     * Return the fields and values to create a new post from
+     */
+    public function postFillData()
+    {
+        return [
+            'name' => $this->name,
         ];
     }
 }

@@ -1,4 +1,3 @@
-@extends('admin.layout.home')
 @section('nav')
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -15,12 +14,17 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户名 <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">退出登录</a></li>
-                            </ul>
-                        </li>
+                        @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('/admin/logout') }}">退出登录</a></li>
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div>

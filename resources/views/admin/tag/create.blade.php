@@ -8,7 +8,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-1 control-label">标签名</label>
                     <div class="col-sm-10">
-                        <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="请输入标签名">
+                        <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="请输入标签名">
                     </div>
                 </div>
                 @if (count($errors) > 0)
