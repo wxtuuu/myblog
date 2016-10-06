@@ -10,13 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::auth();/*
 Route::get('/', function () {
     return redirect('home');
 });
-Route::get('/home', 'Home\HomeController@index');
-Route::auth();
-Route::group(['namespace'=>'admin','middleware'=>'web'],function(){
+Route::get('/home', 'Home\HomeController@index');*/
+
+Route::group(['namespace'=>'Admin'/*,'middleware'=>'auth:admin'*/],function(){
+
     Route::get('admin', 'AdminController@index');
     /*用户登录*/
     Route::get('admin/login', 'AuthController@getLogin');
