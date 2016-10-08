@@ -14,12 +14,12 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/admin/login') }}">Login</a></li>
-                            <li><a href="{{ url('/admin/register') }}">Register</a></li>
+                        @if (!session('user'))
+                            <li><a href="{{ url('/admin/login') }}">登陆</a></li>
+                            <li><a href="{{ url('/admin/register') }}">注册</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ session('name') }}<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ url('/admin/logout') }}">退出登录</a></li>
                                 </ul>

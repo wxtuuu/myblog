@@ -10,21 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::auth();/*
+Route::auth();
 Route::get('/', function () {
     return redirect('home');
 });
-Route::get('/home', 'Home\HomeController@index');*/
+Route::get('/home', 'Home\HomeController@index');
 
-Route::group(['namespace'=>'Admin'/*,'middleware'=>'auth:admin'*/],function(){
-
+Route::group(['namespace'=>'Admin','middleware'=>'admin'],function(){
     Route::get('admin', 'AdminController@index');
-    /*用户登录*/
-    Route::get('admin/login', 'AuthController@getLogin');
-    Route::post('admin/login', 'AuthController@postLogin');
-    Route::get('admin/register', 'AuthController@getRegister');
-    Route::post('admin/register', 'AuthController@postRegister');
-    Route::get('admin/logout', 'AuthController@logout');
     /*文章显示*/
     Route::get('admin/article','ArticleController@index');
     Route::get('admin/article/add','ArticleController@add');
@@ -42,4 +35,9 @@ Route::group(['namespace'=>'Admin'/*,'middleware'=>'auth:admin'*/],function(){
     Route::post('admin/tag/update/{id}','TagController@edit');
     Route::get('admin/tag/delete/{id}','TagController@delete');
 });
-
+/*用户登录*/
+Route::get('admin/login', 'Admin\AdminController@login');
+Route::post('admin/login', 'Admin\AdminController@postLogin');
+Route::get('admin/register', 'Admin\AdminController@register');
+Route::post('admin/register', 'Admin\AdminController@postRegister');
+Route::get('admin/logout', 'Admin\AdminController@logout');

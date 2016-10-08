@@ -59,12 +59,15 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 blog-main">
-                <div class="blog-post">
-                    <h2>夏活</h2>
-                    <p class="blog-post-meta">2016年9月12日 <a href="#" class="blog-post-label">舰娘</a></p>
-                    <p class="blog-post-content">小型活动</p>
-                    <p><a href="#">阅读更多</a></p>
-                </div>
+                @foreach($article as $v)
+                    <div class="blog-post">
+                        <h2>{{$v->title}}</h2>
+                        <p class="blog-post-meta">{{$v->created_at}} <a href="#" class="blog-post-label">舰娘</a></p>
+                        <p class="blog-post-content">{{$v->content}}</p>
+                        <p><a href="#">阅读更多</a></p>
+                    </div>
+                @endforeach
+
                 <div class="blog-post">
                     <h2>夏活</h2>
                     <p class="blog-post-meta">2016年9月12日 <a href="#" class="blog-post-label">舰娘</a></p>

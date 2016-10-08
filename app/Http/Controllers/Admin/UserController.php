@@ -11,7 +11,14 @@ class UserController extends Controller
 {
     public function login()
     {
-        return view('admin.user');
+        return view('admin.user.login');
     }
 
+    public function postLogin(Requests\UserRequest $request)
+    {
+        $user = $request->input('user');
+        print_r($user);die;
+        $password = $request->input('password');
+
+    }
 }
